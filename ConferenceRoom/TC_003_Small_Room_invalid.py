@@ -22,7 +22,7 @@ Start_time.send_keys("00")
 End_time = driver.find_element(By.CSS_SELECTOR, "input#end-time")
 End_time.click()
 End_time.send_keys("12")
-End_time.send_keys("21")
+End_time.send_keys("15")
 End_time.send_keys("2024")
 End_time.send_keys("01")
 End_time.send_keys("00")
@@ -31,15 +31,16 @@ End_time.send_keys(Keys.ARROW_DOWN)
 Book_room_button = driver.find_element(By.CSS_SELECTOR, "#booking-form button")
 Book_room_button.click()
 
-Expected_cost_for_one_hour = "Total Cost: $100"
+Expected_error_message = "Please fill out all fields correctly."
 
-Actual_cost_for_one_hour_element = driver.find_element(By.CSS_SELECTOR, "#cost")
-Actual_cost_for_one_hour = Actual_cost_for_one_hour_element.text
+Actual_error_message = driver.switch_to.alert.text
+driver.switch_to.alert.accept()
 
-if Expected_cost_for_one_hour == Actual_cost_for_one_hour:
-    print("Test Case Passed.Cost for one hour is $100")
+
+if Expected_error_message == Actual_error_message:
+    print("Test Case Passed.")
 else:
     print("Test Case Failed.")
-    print("Expected Cost: ", Expected_cost_for_one_hour, "But Found: ", Actual_cost_for_one_hour)
+    print("Expected error Message: ", Expected_error_message, "But Found: ", Actual_error_message)
 
 driver.quit()

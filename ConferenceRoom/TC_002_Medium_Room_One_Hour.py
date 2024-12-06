@@ -41,3 +41,5 @@ if Expected_cost_for_one_hour == Actual_cost_for_one_hour:
 else:
     print("Test Case Failed.")
     print("Expected Cost: ", Expected_cost_for_one_hour, "But Found: ", Actual_cost_for_one_hour)
+
+driver.quit()
