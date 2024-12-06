@@ -20,3 +20,5 @@ driver.get("https://apple.com")
 
 # back to parent tab
 driver.switch_to.window(driver.window_handles[0])
+
+driver.quit()
